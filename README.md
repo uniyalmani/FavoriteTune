@@ -1,5 +1,8 @@
 # FavoriteTune Django Project
 
+## aws link - 
+- AWS Project Link [project aws deployment link](http://ec2-54-224-57-39.compute-1.amazonaws.com/user/home)
+
 ## Overview
 
 FavoriteTune is a Django project that allows users to discover and save their favorite tunes. The project is containerized using Docker and managed with Docker Compose.
