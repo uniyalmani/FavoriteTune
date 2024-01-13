@@ -36,7 +36,7 @@ Alternatively, you can use Docker Compose to manage the services:
     docker-compose up -d
     ```
 
-2. Open your browser and visit [http://localhost:8000](http://localhost:8000) to access the FavoriteTune app.
+2. Open your browser and visit [http://localhost:8000](http://localhost:80) to access the FavoriteTune app.
 
 3. To stop the services:
 
