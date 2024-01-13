@@ -1,0 +1,33 @@
+{% extends 'auth_app/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+
+    
+<h1 class="text-center mt-5">Audio Files</h1>
+<ul>
+  {% for audio_file in audio_files %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <B>Song</B>:{{ audio_file.title }}</h5>
+      <p class="card-text"><B>Artist</B>: {{ audio_file.artist.name }}</p>
+      <p class="card-text"> <B>Uploded By </B>: {{ audio_file.user.email }}</p>
+      <p class="card-text"> <B>Uploded By </B>: {{ audio_file.created_at }}</p>
+      
+      <audio controls>
+        <source src="{{ audio_file.audio_file.url }}" type="{{ audio_file.audio_file.content_type }}">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+</ul>
+
+
+
+
+
+{% endblock main %}

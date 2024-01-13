@@ -1,0 +1,63 @@
+{% extends 'auth_app/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<div class="container mt-5">
+  <h2 class="mb-4">Audio Upload Form</h2>
+  <form method="post" enctype="multipart/form-data" action="upload_song">
+      {% csrf_token %}
+
+       <!-- Artist Name Input -->
+       <div class="form-group">
+        <label for="artist">Song Name</label>
+        <input type="text" class="form-control" id="artist" name="songname" placeholder="Enter Song Name" required>
+    </div>
+
+      <!-- Artist Name Input -->
+      <div class="form-group">
+          <label for="artist">Artist Name</label>
+          <input type="text" class="form-control" id="artist" name="artist" placeholder="Enter artist name" required>
+      </div>
+
+      <!-- Audio File Input -->
+      <div class="form-group">
+          <label for="audio">Select Audio File(s)</label>
+          <input id="fileInput" class="form-control-file" accept="audio/*" type="file" name="songs" multiple required>
+      </div>
+
+      <!-- Audio Player -->
+      <div class="form-group">
+          <label for="audioPlayer">Preview</label>
+          <audio id="audioPlayer" class="form-control" controls>
+              <!-- Your initial source, it will be updated dynamically using JavaScript -->
+              <source src="" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+
+  <!-- JavaScript to update the audio player source dynamically -->
+  <script>
+      document.getElementById('fileInput').addEventListener('change', function(event) {
+          var audioPlayer = document.getElementById('audioPlayer');
+          var fileInput = event.target;
+          
+          // Assuming the first file is selected
+          var selectedFile = fileInput.files[0];
+
+          if (selectedFile) {
+              var objectURL = URL.createObjectURL(selectedFile);
+              audioPlayer.src = objectURL;
+          }
+      });
+  </script>
+</div>
+
+
+
+{% endblock main %}
